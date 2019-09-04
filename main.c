@@ -12,15 +12,6 @@
 
 #include <unistd.h>
 
-static void	ft_putstr(char *s)
-{
-	while (s[0])
-	{
-		write(1, s, 1);
-		s++;
-	}
-}
-
 int			brackets(char *s, int *i, char c)
 {
 	int		res;
@@ -56,13 +47,13 @@ int			main(int argc, char **argv)
 		j = 0;
 		c = 0;
 		if (i > 1)
-			ft_putstr("\n");
+			write(1, "\n", 1);
 		if (brackets(argv[i], &j, c) == 1)
-			ft_putstr("OK");
+			write(1, "OK", 2);
 		else
-			ft_putstr("Error");
+			write(1, "Error", 5);
 		i++;
 	}
-	ft_putstr("\n");
+	write(1, "\n", 1);
 	return (0);
 }
